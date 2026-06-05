@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QML Rain Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <h2>QML Rain Predictor</h2>
+      <a href="https://github.com/" target="_blank">GitHub</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="tag">Quantum Machine Learning + Formal Methods</p>
+        <h1>Rain Prediction with Verified Warning Logic</h1>
+        <p class="subtitle">Enter weather values and get a rain probability, decision level, and safety explanation inspired by the formal TLA+ policy.</p>
+      </div>
+      <div class="card result-card">
+        <h3>Prediction Result</h3>
+        <div id="probability">--%</div>
+        <p id="decision">Enter values and click Predict</p>
+        <div class="meter"><span id="meter-fill"></span></div>
+        <p id="formal-status" class="formal-status">Formal policy check waiting.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card form-card">
+      <h2>Weather Input</h2>
+      <div class="form-grid">
+        <label>Temperature °C<input type="number" id="temperature" value="27" min="0" max="50"></label>
+        <label>Humidity %<input type="number" id="humidity" value="78" min="0" max="100"></label>
+        <label>Pressure hPa<input type="number" id="pressure" value="1004" min="950" max="1050"></label>
+        <label>Wind Speed km/h<input type="number" id="wind" value="12" min="0" max="100"></label>
+        <label>Cloud Cover %<input type="number" id="cloud" value="82" min="0" max="100"></label>
+        <label>Previous Rainfall mm<input type="number" id="rainfall" value="8" min="0" max="200"></label>
+      </div>
+      <button onclick="predictRain()">Predict Rain</button>
+    </section>
+
+    <section class="info-grid">
+      <div class="card">
+        <h3>QML Layer</h3>
+        <p>The website uses a lightweight JavaScript approximation of the trained model. The Python repository contains the PennyLane and PyTorch hybrid QML implementation.</p>
+      </div>
+      <div class="card">
+        <h3>Formal Verification</h3>
+        <p>The decision policy follows a TLA+ specification that checks valid decision states and warning behavior under high-risk weather conditions.</p>
+      </div>
+      <div class="card">
+        <h3>Decision Levels</h3>
+        <p>No Warning means low risk, Watch means moderate risk, and Warning means high probability of rain with supporting weather conditions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Quantum Machine Learning Rain Prediction Project | GitHub Pages Demo</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
